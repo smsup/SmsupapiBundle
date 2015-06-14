@@ -16,6 +16,6 @@
         "smsup/smsuplib": "~2.0"
     },
     "autoload": {
-        "psr-4": { "smsup\\SmsupapiBundle": "" }
+        "psr-4": { "smsup\\SmsupapiBundle\\": "" }
     }
 }
