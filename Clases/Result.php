@@ -15,11 +15,11 @@ class Result {
 
 	public function getHttpcode()
 	{
-		return $httpcode;
+		return $this->httpcode;
 	}
 
 	public function getResult()
 	{
-		return $result;
+		return $this->result;
 	}
 }
