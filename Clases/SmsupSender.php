@@ -24,35 +24,35 @@ class SmsupSender {
 		return new Sms;
 	}
 
-	public function EnviarSms(Sms $sms)
+	public function enviarSms(Sms $sms)
 	{
 		$lib = $this->getSmsapilib();
 		$respuesta = $lib->NuevoSms($sms->getTexto(), $sms->getNumeros(), $sms->getFechaenvio(), $sms->getReferencia(), $sms->getRemitente());
 		return $this->setResult($respuesta);
 	}
 
-	public function EliminarSms($idsms)
+	public function eliminarSms($idsms)
 	{
 		$lib = $this->getSmsapilib();
 		$respuesta = $lib->EliminarSMS($idsms);
 		return $this->setResult($respuesta);
 	}
 
-	public function EstadoSms($idsms)
+	public function estadoSms($idsms)
 	{
 		$lib = $this->getSmsapilib();
 		$respuesta = $lib->EstadoSMS($idsms);
 		return $this->setResult($respuesta);
 	}
 
-	public function CreditosDisponibles()
+	public function creditosDisponibles()
 	{
 		$lib = $this->getSmsapilib();
 		$respuesta = $lib->CreditosDisponibles();
 		return $this->setResult($respuesta);
 	}
 
-	public function ResultadoPeticion($referencia)
+	public function resultadoPeticion($referencia)
 	{
 		$lib = $this->getSmsapilib();
 		$respuesta = $lib->ResultadoPeticion($referencia);
