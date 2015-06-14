@@ -1,6 +1,7 @@
 SmsupapiBundle
 ==============
 
+[![Latest Stable Version](https://poser.pugx.org/smsup/smsup-api-bundle/v/stable)](https://packagist.org/packages/smsup/smsup-api-bundle)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/91963bc8-78b2-4367-a5e7-7a83e213526b/mini.png)](https://insight.sensiolabs.com/projects/91963bc8-78b2-4367-a5e7-7a83e213526b)
 
 Bundle Symfony2 para el uso de la api de smsup.es para el envio de sms
