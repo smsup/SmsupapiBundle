@@ -2,11 +2,71 @@
 
 namespace smsup\SmsupapiBundle\Clases;
 
+use smsup\smsuplib;
+
 class SmsupSender {
 
-	public function Send($mensaje)
+	protected $apiId;
+	protected $apiSecret;
+
+	public function setApiid($apiId)
 	{
-		echo "Su mensaje es: " . $mensaje;
+		$this->apiId = $apiId;
+	}
+
+	public function setApisecret($apiSecret)
+	{
+		$this->apiSecret = $apiSecret;
+	}
+
+	public function getNewSms()
+	{
+		return new Sms;
+	}
+
+	public function EnviarSms(Sms $sms)
+	{
+		$lib = $this->getSmsapilib();
+		$respuesta = $lib->NuevoSms($sms->getTexto(), $sms->getNumeros(), $sms->getFechaenvio(), $sms->getReferencia(), $sms->getRemitente());
+		return $this->setResult($respuesta);
+	}
+
+	public function EliminarSms($idsms)
+	{
+		$lib = $this->getSmsapilib();
+		$respuesta = $lib->EliminarSMS($idsms);
+		return $this->setResult($respuesta);
+	}
+
+	public function EstadoSms($idsms)
+	{
+		$lib = $this->getSmsapilib();
+		$respuesta = $lib->EstadoSMS($idsms);
+		return $this->setResult($respuesta);
+	}
+
+	public function CreditosDisponibles()
+	{
+		$lib = $this->getSmsapilib();
+		$respuesta = $lib->CreditosDisponibles();
+		return $this->setResult($respuesta);
+	}
+
+	public function ResultadoPeticion($referencia)
+	{
+		$lib = $this->getSmsapilib();
+		$respuesta = $lib->ResultadoPeticion($referencia);
+		return $this->setResult($respuesta);
+	}
+
+	private function getSmsapilib()
+	{
+		return new smsuplib($this->apiId, $this->apiSecret);
+	}
+
+	private function setResult($respuesta)
+	{
+		return new Result($respuesta['httpcode'], $respuesta['resultado']);
 	}
 
 }
