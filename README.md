@@ -72,3 +72,5 @@ Obtener el resultado de una peticion anterior:
 $sender = $this->get('smsup.smsupapi.sender');
 $sender->resultadoPeticion($referencia);
 ```
+
+[Ver mas datos sobre su uso](https://www.smsup.es/blog/bundle-para-enviar-sms-desde-symfony2/)
